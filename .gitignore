@@ -6,7 +6,13 @@ yarn-error.log
 # Laravel 4 specific
 bootstrap/compiled.php
 app/storage/
-
+public/frontend/images/
+public/images/
+public/img/
+public/invoices/
+public/uploads/
+public/shop/
+public/sliders/
 # Laravel 5 & Lumen specific
 public/storage
 public/hot

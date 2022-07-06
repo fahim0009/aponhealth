@@ -47,7 +47,7 @@
                     <label class="col-sm-3 control-label" for="phone">{{__('Phone')}}</label>
                     <div class="col-sm-9">
                         <input type="text" placeholder="{{__('Phone No')}}" id="phone" name="phone" class="form-control" required>
-                        
+
                     <span id="error_phone"></span>
                     </div>
                     @error('phone')
@@ -63,10 +63,10 @@
                         <input type="password" placeholder="{{__('Password')}}" id="password" name="password" class="form-control" required>
                     </div>
                 </div>
-                
+
             </div>
             <div class="panel-footer text-right">
-                <button type="submit" name="register" id="register" class="btn btn-info btn-lg">{{__('Save Patient')}}</button>
+                <button type="submit" name="register" id="register" class="btn btn-info btn-lg">{{__('Save')}}</button>
             </div>
         </form>
         {{ csrf_field() }}
@@ -154,7 +154,7 @@
            })
       }
          });
-    
+
         });
         </script>
 @endsection

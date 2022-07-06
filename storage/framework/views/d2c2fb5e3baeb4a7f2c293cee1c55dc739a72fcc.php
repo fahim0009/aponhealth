@@ -7,13 +7,13 @@
                     <!-- Nav Link -->
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                         <li class="nav-item py-1"><a class="text-white"
-                                href="{{ route('contactus') }}">Contact Us</a></li>
+                                href="<?php echo e(route('contactus')); ?>">Contact Us</a></li>
                         <li class="nav-item py-1"><a class="text-white"
-                                href="{{ route('aboutus') }}">About Us</a></li>
+                                href="<?php echo e(route('aboutus')); ?>">About Us</a></li>
                         <li class="nav-item py-1"><a class="text-white"
-                                href="{{ route('privacypolicy') }}">Privacy Policy</a></li>
+                                href="<?php echo e(route('privacypolicy')); ?>">Privacy Policy</a></li>
                         <li class="nav-item py-1"><a class="text-white"
-                                href="{{ route('terms') }}">Terms and Conditions</a></li>
+                                href="<?php echo e(route('terms')); ?>">Terms and Conditions</a></li>
                     </ul>
                     <!-- End Nav Link -->
                 </div>
@@ -21,19 +21,18 @@
                     <h5 class="text-white">USEFUL LINKS</h5>
                     <!-- Nav Link -->
                     <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-                        <li class="nav-item py-1"><a class="text-white" href="{{ route('faq') }}">FAQ</a>
+                        <li class="nav-item py-1"><a class="text-white" href="<?php echo e(route('faq')); ?>">FAQ</a>
                         </li>
                         <!--<li class="nav-item py-1"><a class="text-white"-->
-                        <!--        href="{{ route('frontend.address') }}">Address</a></li>-->
+                        <!--        href="<?php echo e(route('frontend.address')); ?>">Address</a></li>-->
                         <li class="nav-item py-1"><a class="text-white"
-                            href="{{route('products')}}">All Product</a></li>
-                        {{-- <li class="nav-item py-1"><a class="text-white"
-                                href="{{route('frontend.medicine')}}">Medicines</a></li> --}}
+                            href="<?php echo e(route('products')); ?>">All Product</a></li>
+                        
                         <li class="nav-item py-1"><a class="text-white"
-                            href="{{route('compare')}}">Compare</a></li>
+                            href="<?php echo e(route('compare')); ?>">Compare</a></li>
 
                        <!-- <li class="nav-item py-1"><a class="text-white"
-                                href="{{ route('frontend.specialoffer') }}">Special Offers</a></li>-->
+                                href="<?php echo e(route('frontend.specialoffer')); ?>">Special Offers</a></li>-->
                     </ul>
                     <!-- End Nav Link -->
                 </div>
@@ -85,12 +84,12 @@ info@aponhealth.com</br>
                         <li class="nav-item w-100">
                             <a class="py-1 d-block app_download_link" href=" ">
                                 <img loading="lazy" class='img-fluid'
-                                    src="{{asset('frontend/images/images/google_play.png')}}" alt="">
+                                    src="<?php echo e(asset('frontend/images/images/google_play.png')); ?>" alt="">
                             </a>
                         </li>
                         <li class="nav-item w-100">
                             <a class="py-1 d-block app_download_link" href=" "><img class='img-fluid' loading="lazy"
-                                    src="{{asset('frontend/images/images/apple_store.png')}}"></a>
+                                    src="<?php echo e(asset('frontend/images/images/apple_store.png')); ?>"></a>
                         </li>
                     </ul>-->
                     <!-- End Nav Link -->
@@ -111,113 +110,117 @@ info@aponhealth.com</br>
     <div class="links">
         <div class="nav-cart-box dropdown" id="cart_items1">
             <a href="" class="nav-box-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="{{asset('frontend/images/images/shopping-cart.png')}}" height="20px">
-                @if(Session::has('cart'))
+                <img src="<?php echo e(asset('frontend/images/images/shopping-cart.png')); ?>" height="20px">
+                <?php if(Session::has('cart')): ?>
                 <div class="cartitem">
-                    {{ count(Session::get('cart'))}}
+                    <?php echo e(count(Session::get('cart'))); ?>
+
                  </div>
 
-                @else
+                <?php else: ?>
                 <div class="cartitem">
                     0
                  </div>
 
-                @endif
+                <?php endif; ?>
             </a>
             <ul class="dropdown-menu dropdown-menu-right px-0">
                 <li>
                     <div class="dropdown-cart px-0">
-                        @if(Session::has('cart'))
-                            @if(count($cart = Session::get('cart')) > 0)
+                        <?php if(Session::has('cart')): ?>
+                            <?php if(count($cart = Session::get('cart')) > 0): ?>
                                 <div class="dc-header">
-                                    <h3 class="heading heading-6 strong-700">{{__('Cart Items')}}</h3>
+                                    <h3 class="heading heading-6 strong-700"><?php echo e(__('Cart Items')); ?></h3>
                                 </div>
                                 <div class="dropdown-cart-items c-scrollbar">
-                                    @php
+                                    <?php
                                         $total = 0;
-                                    @endphp
-                                    @foreach($cart as $key => $cartItem)
-                                        @php
+                                    ?>
+                                    <?php $__currentLoopData = $cart; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $cartItem): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
                                             $product = \App\Models\Product::find($cartItem['id']);
                                             $total = $total + $cartItem['price']*$cartItem['quantity'];
-                                        @endphp
+                                        ?>
                                         <div class="dc-item">
                                             <div class="d-flex align-items-center">
                                                 <div class="dc-image">
-                                                    <a href="{{ route('product', $product->slug) }}">
-                                                        <img src="{{ asset($product->thumbnail_img) }}" class="img-fluid" alt="">
+                                                    <a href="<?php echo e(route('product', $product->slug)); ?>">
+                                                        <img src="<?php echo e(asset($product->thumbnail_img)); ?>" class="img-fluid" alt="">
                                                     </a>
                                                 </div>
                                                 <div class="dc-content">
                                                     <span class="d-block dc-product-name text-capitalize strong-600 mb-1">
-                                                        <a href="{{ route('product', $product->slug) }}">
-                                                            {{ __($product->name) }}
+                                                        <a href="<?php echo e(route('product', $product->slug)); ?>">
+                                                            <?php echo e(__($product->name)); ?>
+
                                                         </a>
                                                     </span>
 
-                                                    <span class="dc-quantity">x{{ $cartItem['quantity'] }}</span>
-                                                    <span class="dc-price">{{ single_price($cartItem['price']*$cartItem['quantity']) }}</span>
+                                                    <span class="dc-quantity">x<?php echo e($cartItem['quantity']); ?></span>
+                                                    <span class="dc-price"><?php echo e(single_price($cartItem['price']*$cartItem['quantity'])); ?></span>
                                                 </div>
                                                 <div class="dc-actions">
-                                                    <button onclick="removeFromCart({{ $key }})">
+                                                    <button onclick="removeFromCart(<?php echo e($key); ?>)">
                                                         <i class="la la-close"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </div>
                                 <div class="dc-item py-3">
-                                    <span class="subtotal-text">{{__('Subtotal')}}</span>
-                                    <span class="subtotal-amount">{{ single_price($total) }}</span>
+                                    <span class="subtotal-text"><?php echo e(__('Subtotal')); ?></span>
+                                    <span class="subtotal-amount"><?php echo e(single_price($total)); ?></span>
                                 </div>
                                 <div class="py-2 text-center dc-btn">
                                     <ul class="inline-links inline-links--style-3">
                                         <li class="pr-3">
-                                            <a href="{{ route('cart') }}" class="link link--style-1 text-capitalize btn btn-base-1 px-3 py-1">
-                                                <i class="la la-shopping-cart"></i> {{__('View cart')}}
+                                            <a href="<?php echo e(route('cart')); ?>" class="link link--style-1 text-capitalize btn btn-base-1 px-3 py-1">
+                                                <i class="la la-shopping-cart"></i> <?php echo e(__('View cart')); ?>
+
                                             </a>
                                         </li>
                                         <li>
-                                        @if(Auth::check())
-                                        <a href="{{ route('checkout.shipping_info') }}" class="link link--style-1 text-capitalize btn btn-base-1 px-3 py-1 light-text"><i class="la la-mail-forward"></i> {{__('Checkout')}}</a>
-                                        @else
-                                        <a href="{{ route('cart.login') }}" class="link link--style-1 text-capitalize btn btn-base-1 px-3 py-1 light-text"><i class="la la-mail-forward"></i> {{__('Checkout')}}</a>
-                                        @endif
+                                        <?php if(Auth::check()): ?>
+                                        <a href="<?php echo e(route('checkout.shipping_info')); ?>" class="link link--style-1 text-capitalize btn btn-base-1 px-3 py-1 light-text"><i class="la la-mail-forward"></i> <?php echo e(__('Checkout')); ?></a>
+                                        <?php else: ?>
+                                        <a href="<?php echo e(route('cart.login')); ?>" class="link link--style-1 text-capitalize btn btn-base-1 px-3 py-1 light-text"><i class="la la-mail-forward"></i> <?php echo e(__('Checkout')); ?></a>
+                                        <?php endif; ?>
                                         </li>
                                     </ul>
                                 </div>
-                            @else
+                            <?php else: ?>
                                 <div class="dc-header">
-                                    <h3 class="heading heading-6 strong-700">{{__('Your Cart is empty')}}</h3>
+                                    <h3 class="heading heading-6 strong-700"><?php echo e(__('Your Cart is empty')); ?></h3>
                                 </div>
-                            @endif
-                        @else
+                            <?php endif; ?>
+                        <?php else: ?>
                             <div class="dc-header">
-                                <h3 class="heading heading-6 strong-700">{{__('Your Cart is empty')}}</h3>
+                                <h3 class="heading heading-6 strong-700"><?php echo e(__('Your Cart is empty')); ?></h3>
                             </div>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </li>
             </ul>
         </div>
-        <a href="{{route('wishlists.index')}}">
+        <a href="<?php echo e(route('wishlists.index')); ?>">
             <span class="iconify" data-icon="ant-design:heart-outlined"></span>
             <span>Wishlist</span>
         </a>
-        <a href="{{route('products')}}">
+        <a href="<?php echo e(route('products')); ?>">
             <div class="middle-inner">
                 <span class="iconify" data-icon="fluent:building-shop-24-regular">  </span>
 
             </div>
         </a>
-        <a href="{{route('dashboard')}}">
+        <a href="<?php echo e(route('dashboard')); ?>">
             <span class="iconify" data-icon="codicon:account"></span>
             <span>Profile</span>
         </a>
-        <a href="{{route('purchase_history.index')}}">
+        <a href="<?php echo e(route('purchase_history.index')); ?>">
             <span class="iconify" data-icon="mdi:application-edit"></span>
             <span>My Order</span>
         </a>
     </div>
 </div>
+<?php /**PATH D:\server\htdocs\Laravel\aponhealth\resources\views/frontend/inc/footer.blade.php ENDPATH**/ ?>

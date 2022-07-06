@@ -21,6 +21,7 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    <th>{{__('Date')}}</th>
                     <th>{{__('Name')}}</th>
                     <th>{{__('Email')}}</th>
                     <th>{{__('Address')}}</th>
@@ -36,6 +37,7 @@
 
                     <tr>
                         <td>{{$key+1}}</td>
+                        <td>{{ $data->created_at }}</td>
                         <td>{{ $data->name }}</td>
                         <td>{{ $data->email }}</td>
                         <td>{{ $data->address }}</td>

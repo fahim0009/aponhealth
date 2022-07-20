@@ -77,7 +77,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="control-label">{{__('Email')}}</label>
-                                                    <input type="email" class="form-control" name="email" id="email" value="{{ $user->email }}" required>
+                                                    <input type="email" class="form-control" name="email" id="email" value="{{ $user->email }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -98,6 +98,7 @@
                                             </div>
                                         </div>
                                         @php
+
                                             $region = \App\Models\Division::where('id', '=', $user->region)->first()->name;
                                             $city = \App\Models\District::where('id', '=', $user->city)->first()->name;
                                             $area = \App\Models\Upazila::where('id', '=', $user->area)->first()->name;
@@ -106,13 +107,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">{{__('Region')}}</label>
-                                                    <input type="text" class="form-control" value="{{$region}}" name="region" id="region" readonly>
+                                                    <input type="text" class="form-control" value="@if(isset($region)) {{$region}} @endif" name="region" id="region" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">{{__('City')}}</label>
-                                                    <input type="text" class="form-control" id="city" value="{{ $city }}" name="city" readonly>
+                                                    <input type="text" class="form-control" id="city" value="@if(isset($city)) {{$city}} @endif" name="city" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -120,7 +121,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-feedback">
                                                     <label class="control-label">{{__('Area')}}</label>
-                                                    <input type="text" class="form-control" id="area" value="{{ $area }}" name="area" readonly>
+                                                    <input type="text" class="form-control" id="area" value="@if(isset($area)) {{$area}} @endif" name="area" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -224,7 +225,7 @@
                                                     <label>{{__('Email')}}</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="email" class="form-control mb-3" placeholder="Your Email Address" name="email" required>
+                                                    <input type="email" class="form-control mb-3" placeholder="Your Email Address" name="email">
                                                 </div>
                                             </div>
 
@@ -298,7 +299,7 @@
                                                     <label>{{__('Post Code')}}</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" class="form-control mb-3" placeholder="Post Code" name="post_code" required>
+                                                    <input type="text" class="form-control mb-3" placeholder="Post Code" name="post_code">
                                                 </div>
                                             </div>
 

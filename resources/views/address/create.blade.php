@@ -29,21 +29,21 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="area">{{__('Area')}}</label>
                         <div class="col-sm-9">
-                            <input type="text" placeholder="{{__('Area')}}" id="area" name="area" class="form-control" required>
+                            <input type="text" placeholder="{{__('Area')}}" id="area" name="area" class="form-control">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 control-label" for="shipping_cost">{{__('Shipping Cost')}}</label>
                         <div class="col-sm-9">
-                            <input type="number" placeholder="{{__('Shipping Cost')}}" id="shipping_cost" name="shipping_cost" class="form-control" required>
+                            <input type="number" placeholder="{{__('Shipping Cost')}}" id="shipping_cost" name="shipping_cost" class="form-control">
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="panel-footer text-right">
                     <button class="btn btn-purple" type="submit">{{__('Save')}}</button>

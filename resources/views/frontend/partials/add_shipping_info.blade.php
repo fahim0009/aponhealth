@@ -69,7 +69,7 @@
                                             <label>{{__('Email')}}</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="email" class="form-control mb-3" placeholder="Your Email Address" name="email" required>
+                                            <input type="email" class="form-control mb-3" placeholder="Your Email Address" name="email" >
                                         </div>
                                     </div>
 
@@ -143,7 +143,7 @@
                                             <label>{{__('Post Code')}}</label>
                                         </div>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control mb-3" placeholder="Post Code" name="post_code" required>
+                                            <input type="text" class="form-control mb-3" placeholder="Post Code" name="post_code">
                                         </div>
                                     </div>
 

@@ -12,6 +12,8 @@ public/images/
 public/img/
 public/invoices/
 public/uploads/
+public/page-cache/
+public/prescriptions/
 public/shop/
 public/sliders/
 # Laravel 5 & Lumen specific

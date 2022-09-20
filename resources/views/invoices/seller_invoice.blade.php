@@ -149,6 +149,10 @@
                             <th class="gry-color text-left">Total Tax</td>
                             <td>{{ $order->orderDetails->sum('tax') }}</td>
                         </tr>
+                        <tr class="border-bottom">
+                            <th class="gry-color text-left">Discount(-)</td>
+                            <td>{{ $order->discount }}</td>
+                        </tr>
                         <tr>
                             <th class="text-left strong">Grand Total</td>
                             <td>{{ $order->grand_total }}</td>

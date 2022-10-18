@@ -442,6 +442,7 @@ class OrderController extends Controller
     {
         // dd(decrypt($id));
         $order = Order::findOrFail(decrypt($id));
+        // dd($order);
         $order->viewed = 1;
         $order->save();
         return view('orders.show', compact('order'));

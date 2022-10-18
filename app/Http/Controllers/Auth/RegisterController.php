@@ -98,9 +98,6 @@ class RegisterController extends Controller
         //update user
         
         
-        
-        
-        
         $phone = $data['email'];
         $codeverify = rand(1234, 4568);
         $user = User::create([

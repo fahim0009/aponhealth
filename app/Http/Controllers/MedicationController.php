@@ -9,6 +9,7 @@ use App\Models\PrescriptionImage;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\History;
 use App\Models\MedicationDetails;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
@@ -737,6 +738,20 @@ class MedicationController extends Controller
       flash(__('Medication User Deactive successfully'))->success();
         return redirect()->route('medication.index');
     }
+
+    public function medHistryDelete($id)
+    {
+        if(History::destroy($id)){
+            flash(__('Medication History has been deleted successfully'))->success();
+            return back();
+        }
+        else{
+            flash(__('Something went wrong'))->error();
+            return back();
+        }
+
+    }
+
 // user part
     public function userMedicationEdit(Request $request)
     {

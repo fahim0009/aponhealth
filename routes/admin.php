@@ -267,6 +267,7 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
     Route::post('medication/update', [MedicationController::class, 'medUserUpdate'])->name('medication.edit.update');
     Route::post('medication/order', [MedicationController::class, 'medUserOrder'])->name('medication.user.order');
     Route::get('medication/delete/{id}', [MedicationController::class, 'medDelete'])->name('medicationuser.destroy');
+    Route::get('medication-histry/delete/{id}', [MedicationController::class, 'medHistryDelete'])->name('medicationuserhistry.destroy');
 
 	// view user message
 
@@ -356,6 +357,7 @@ Route::group(['prefix' =>'admin', 'middleware' => ['auth', 'admin']], function()
 	// contact message show
 	Route::get('/user-contact-info', [RegularMedicationController::class, 'showregularmedication'])->name('user-message.index');
     Route::post('/user-contact-info', [RegularMedicationController::class, 'newmedicationuser'])->name('madication.regular');
+	Route::get('/user-contact-info/{id}', [RegularMedicationController::class, 'deleteregularmedication'])->name('user-message.delete');
 
 	
 	// affiliate user

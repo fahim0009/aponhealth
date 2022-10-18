@@ -181,6 +181,15 @@
 
     				</td>
     			</tr>
+				<tr>
+    				<td>
+    					<strong>{{__('Discount')}} :</strong>
+    				</td>
+    				<td>
+    					<input type="number" id="discount" name="discount" class="form-control">
+
+    				</td>
+    			</tr>
     			<tr>
     				<td>
     					<strong>{{__('Total')}} :</strong>
@@ -201,4 +210,17 @@
     </div>
 @endsection
 
+@section('script')
+	<script>
+        $(document).ready(function () {
+		// calculation start 
+			$("#discount").keyup(function(){
 
+
+
+                
+            });
+            //calculation end
+        });
+	</script>
+@endsection

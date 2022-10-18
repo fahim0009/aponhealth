@@ -492,6 +492,19 @@ class HomeController extends Controller
             })->limit(10)
             ->first();
 
+            // filter_products(\App\Models\Product::where('category_id', 25))->limit(10)->get()
+
+    $checkproduct = Product::where('category_id', 25)->limit(10)->get();
+
+    
+
+
+
+
+
+
+    // dd($checkproduct );
+
     //     $featured_product = Category::with('products')
     //         ->whereHas('products',function ($query){
     //             $query->where('featured',1);

@@ -115,6 +115,9 @@
                                               <h5>Remark : {{$his->remark}}</h5>
                                               <p> {{$his->discription}}</p>
                                               <p><b>Next Calling Date: {{$his->remark_date}}</b></p>
+
+                                              <a onclick="confirm_modal('{{route('medicationuserhistry.destroy', $his->id)}}');" class="btn btn-danger">Delete</a>
+
                                             </div>
                                           </div>
                                           @endforeach

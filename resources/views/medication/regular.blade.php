@@ -26,8 +26,8 @@
                     <th>{{__('Email')}}</th>
                     <th>{{__('Address')}}</th>
                     <th>{{__('Mobile')}}</th>
-                    <th>{{__('Message')}}</th>
-                    <th width="10%">{{__('Remark')}}</th>
+                    {{-- <th>{{__('Message')}}</th> --}}
+                    {{-- <th width="10%">{{__('Remark')}}</th> --}}
                     <th>{{__('Action')}}</th>
                 </tr>
             </thead>
@@ -42,19 +42,22 @@
                         <td>{{ $data->email }}</td>
                         <td>{{ $data->address }}</td>
                         <td>{{ $data->mobile }}</td>
-                        <td>{{ $data->message }}</td>
-                        <td><button type="button" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#{{$data->id}}"> Add </button>
+                        {{-- <td>{{ $data->message }}</td> --}}
+                        {{-- <td><button type="button" class="btn btn-sm btn-purple" data-toggle="modal" data-target="#{{$data->id}}"> Add </button>
                             <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#view{{$data->id}}"> View </button>
-                        </td>
-                        {{-- <td><a href="{{ route('madication.regular', encrypt($data->id))}}"><i class="fa fa-plus" aria-hidden="true"></i></a></td> --}}
+                        </td> --}}
                         <td>
+                            {{-- <a href="{{ route('madication.regular', encrypt($data->id))}}"><i class="fa fa-plus" aria-hidden="true"></i></a> --}}
+                            <a onclick="confirm_modal('{{route('user-message.delete', $data->id)}}');"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
+                        {{-- <td>
                             <form action="{{route('madication.regular')}}" method="post">
                                 @csrf
                                 <input type="hidden" name="rmid" value="{{$data->id}}">
                                 <input type="hidden" name="rmmobile" value="{{$data->mobile}}">
                                 <input type="submit" class="btn btn-primary" value="Add Medication user">
                             </form>
-                        </td>
+                        </td> --}}
 
                     </tr>
 

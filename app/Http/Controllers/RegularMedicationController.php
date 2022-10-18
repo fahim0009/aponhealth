@@ -109,6 +109,19 @@ class RegularMedicationController extends Controller
         return view("medication.regular", compact('rmed'));
     }
 
+    public function deleteregularmedication($id)
+    {
+        if(RegularMedication::destroy($id)){
+            flash(__('Regular Medication has been deleted successfully'))->success();
+            return back();
+        }
+        else{
+            flash(__('Something went wrong'))->error();
+            return back();
+        }
+
+    }
+
 
    
 

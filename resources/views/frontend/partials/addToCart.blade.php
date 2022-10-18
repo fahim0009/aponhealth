@@ -38,6 +38,7 @@
                 <!--        </div>-->
                 <!--    </div>-->
                 <!--</div>-->
+
                 <div class="row no-gutters mt-3">
                     <div class="col-2">
                         <div class="product-description-label">{{__('Price')}}:</div>

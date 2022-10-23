@@ -39,7 +39,7 @@
                             <td>{{$key+1}}</td>
                             <td><a href="{{ route('product', $product->slug) }}" target="_blank">{{ __($product->name) }}</a></td>
                             <td><img class="img-md" src="{{ asset($product->thumbnail_img)}}" alt="Image"></td>
-                            <td>
+                            {{-- <td>
                                 @php
                                     $qty = 0;
                                     foreach (json_decode($product->variations) as $key => $variation) {
@@ -47,7 +47,9 @@
                                     }
                                     echo $qty;
                                 @endphp
-                            </td>
+                            </td> --}}
+                            
+                            <td>{{ $product->current_quantity }}</td>
                             <td>{{ number_format($product->unit_price,2) }}</td>
                             <td><label class="switch">
                                 <input onchange="update_todays_deal(this)" value="{{ $product->id }}" type="checkbox" <?php if($product->todays_deal == 1) echo "checked";?> >

@@ -117,6 +117,7 @@ class ProductController extends Controller
         $product->video_link = $request->video_link;
         $product->unit_price = $request->unit_price;
         $product->purchase_price = $request->purchase_price;
+        $product->current_quantity = $request->current_quantity;
         $product->tax = $request->tax;
         $product->tax_type = $request->tax_type;
         $product->discount = $request->discount;
@@ -329,6 +330,7 @@ class ProductController extends Controller
         $product->video_link = $request->video_link;
         $product->unit_price = $request->unit_price;
         $product->purchase_price = $request->purchase_price;
+        $product->current_quantity = $request->current_quantity;
         $product->tax = $request->tax;
         $product->tax_type = $request->tax_type;
         $product->discount = $request->discount;

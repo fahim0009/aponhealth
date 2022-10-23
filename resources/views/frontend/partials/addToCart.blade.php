@@ -47,6 +47,8 @@
                         <div class="product-price">
                             <strong>
                                 {{ home_discounted_price($product->id) }}
+
+                                
                             </strong>
                             <span class="piece">/{{ $product->unit }}</span>
                         </div>

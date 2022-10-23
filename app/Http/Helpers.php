@@ -344,6 +344,7 @@ if (! function_exists('home_discounted_price')) {
             return format_price($lowest_price);
         }
         else{
+            // return format_price($lowest_price).' - '.format_price($highest_price);
             return format_price($lowest_price).' - '.format_price($highest_price);
         }
     }

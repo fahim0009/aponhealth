@@ -27,7 +27,7 @@
 				        <li class="">
 				            <a data-toggle="tab" href="#demo-stk-lft-tab-4" aria-expanded="false">{{__('Meta Tags')}}</a>
 				        </li>
-						<li class="">
+						<li class="" style="display: none">
 				            <a data-toggle="tab" href="#demo-stk-lft-tab-5" aria-expanded="false">{{__('Customer Choice')}}</a>
 				        </li>
 						<li class="">
@@ -234,7 +234,7 @@
 								</div>
 							</div>
 				        </div>
-						<div id="demo-stk-lft-tab-5" class="tab-pane fade">
+						<div id="demo-stk-lft-tab-5" class="tab-pane fade" style="display: none">
 							<div class="form-group">
 								<div class="col-lg-2">
 									<input type="text" class="form-control" value="{{__('Colors')}}" disabled>
@@ -313,6 +313,14 @@
 	                                </select>
 	                            </div>
 	                        </div>
+
+							<div class="form-group">
+								<label class="col-lg-2 control-label">{{__('Quantity')}}</label>
+								<div class="col-lg-7">
+									<input type="number" min="0" placeholder="{{__('Purchase quantity')}}" name="current_quantity" class="form-control" value="{{$product->current_quantity}}" >
+								</div>
+							</div>
+
 							<br>
 							<div class="sku_combination" id="sku_combination">
 

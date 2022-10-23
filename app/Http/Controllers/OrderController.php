@@ -381,6 +381,10 @@ class OrderController extends Controller
                 $order_detail->save();
                 $product->num_of_sale++;
                 $product->save();
+
+                $decreaseqty = Product::findOrFail($product->id);
+                $decreaseqty->current_quantity = $product->current_quantity - $cartItem['quantity'];
+                $decreaseqty->save();
             }
             
             $drate = Master::where('softcode','=','discount')->first()->hardcode/100;
@@ -533,9 +537,9 @@ class OrderController extends Controller
                 $tran->amount = $commission;
                 $tran->earning_type = "Sales Commission";
                 $tran->save();
-
-
              }  
+
+             
             
         }
         

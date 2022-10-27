@@ -391,7 +391,7 @@ class OrderController extends Controller
             $damount = $subtotal*$drate;
 
             $order->discount = $damount;
-            $order->grand_total = $subtotal + $tax + $order->shipping_cost-$damount;
+            $order->grand_total = $subtotal + $tax + $order->shipping_cost;
             if($order->save()){
                 $order_id = $order->id;
                 DB::update('update prescription_images set order_id = ? , status = ? where user_id = ? and status = ?',[$order_id,1,Auth::user()->id,0]);

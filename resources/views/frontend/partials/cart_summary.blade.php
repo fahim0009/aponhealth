@@ -136,7 +136,7 @@
                 <tr class="cart-total">
                     <th><span class="strong-600">{{__('Total')}}</span></th>
                     <td class="text-right">
-                        <strong><span>{{ single_price($subtotal+$tax+$shippingcost-$damount) }}</span></strong>
+                        <strong><span>{{ single_price($subtotal+$tax+$shippingcost) }}</span></strong>
                     </td>
                 </tr>
             </tfoot>

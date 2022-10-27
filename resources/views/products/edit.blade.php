@@ -308,7 +308,7 @@
 	                            </div>
 	                            <div class="col-lg-1">
 	                                <select class="demo-select2" name="discount_type" >
-	                                	<option value="amount" <?php if($product->discount_type == 'amount') echo "selected";?> >$</option>
+	                                	{{-- <option value="amount" <?php // if($product->discount_type == 'amount') echo "selected";?> >$</option> --}}
 	                                	<option value="percent" <?php if($product->discount_type == 'percent') echo "selected";?> >%</option>
 	                                </select>
 	                            </div>

@@ -121,15 +121,19 @@
                     <div class="product-list">
                         @php
                     $subtotal = 0;
+                    $totalunit_price = 0;
                     $tax = 0;
                     $shipping = 0;
                 @endphp
                 @foreach (Session::get('cart') as $key => $cartItem)
                     @php
                     $product = \App\Models\Product::find($cartItem['id']);
+                    $drate = $product->discount;
+                    $unit_price = $product->unit_price;
+                    $totalunit_price += $unit_price*$cartItem['quantity'];
                     $subtotal += $cartItem['price']*$cartItem['quantity'];
-                    $drate = \App\Models\Master::where('softcode','=','discount')->first()->hardcode/100;
-                    $damount = $subtotal*$drate;
+                    // $drate = \App\Models\Master::where('softcode','=','discount')->first()->hardcode/100;
+                    $damount = $totalunit_price - $subtotal;
                     $tax += $cartItem['tax']*$cartItem['quantity'];
                     $shipping += $cartItem['shipping']*$cartItem['quantity'];
                     // $shippingcost = $cartItem['shipping'];
@@ -184,7 +188,7 @@
                     </div>
                     <div class="price">
                         <div class=" font-weight-bold"> TOTAL</div>
-                        <div class=" font-weight-bold"> {{ single_price($subtotal+$tax+$shippingcost-$damount) }}</div>
+                        <div class=" font-weight-bold"> {{ single_price($subtotal+$tax+$shippingcost) }}</div>
                     </div>
                 </div>
             </div>

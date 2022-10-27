@@ -248,7 +248,7 @@
 								</div>
 								<div class="col-lg-1">
 									<select class="demo-select2" name="discount_type">
-										<option value="amount">$</option>
+										{{-- <option value="amount">$</option> --}}
 										<option value="percent">%</option>
 									</select>
 								</div>

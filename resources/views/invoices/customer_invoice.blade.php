@@ -149,7 +149,7 @@
                     </tr>
                     <tr>
                         <th class="text-left strong">Grand Total</td>
-                        <td>{{ $order->grand_total }}</td>
+                        <td>{{ $order->grand_total - $order->discount }}</td>
                     </tr>
                 </tbody>
             </table>

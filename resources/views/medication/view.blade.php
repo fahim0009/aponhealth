@@ -19,7 +19,7 @@
                 <input type="text" name="country" id="" value="{{ json_decode($medication->shipping_address)->post_code }}" readonly hidden>
                 <input type="text" name="user_id" id="" value="{{$medication->user_id}}" readonly hidden>
                 <input type="text" name="code" value="{{ $medication->code }}" id="" readonly hidden>
-                <input type="text" name="total_price" value="{{$medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax')+$medication->shipping_cost}}" id="" readonly hidden>
+                <input type="text" name="total_price" id="total_price" value="{{$medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax')+$medication->shipping_cost}}" id="" readonly hidden>
                 <input type="text" name="date" value="{{$medication->upcoming_date}}" id="" readonly hidden>
                 <input type="text" name="payment_option" id="" value="{{$medication->payment_type}}" readonly hidden>
 
@@ -72,9 +72,9 @@
     					<td class="text-main">
     						{{__('Total amount')}}
     					</td>
-    					<td class="text-right">
-    						<!--{{ single_price($medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax')) }}-->
-    							{{ single_price($medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax') + $medication->shipping_cost) }}
+    					<td class="text-right" id="grand_total_after_discoumt2">
+							
+    							{{-- {{ single_price($medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax') + $medication->shipping_cost) }} --}}
     					</td>
     				</tr>
     				<tr>
@@ -187,15 +187,15 @@
     				</td>
     				<td>
     					<input type="number" id="discount" name="discount" class="form-control">
-
+						{{-- <div id="output"></div> --}}
     				</td>
     			</tr>
     			<tr>
     				<td>
     					<strong>{{__('Total')}} :</strong>
     				</td>
-    				<td>
-    					{{ single_price($medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax') + $medication->shipping_cost) }}
+    				<td id="grand_total_after_discoumt">
+    					{{-- {{ single_price($medication->medicationDetails->sum('price') + $medication->medicationDetails->sum('tax') + $medication->shipping_cost) }} --}}
     				</td>
     			</tr>
     			</tbody>
@@ -215,8 +215,13 @@
         $(document).ready(function () {
 		// calculation start 
 			$("#discount").keyup(function(){
+				var dInput = this.value;
+				var total_price = $("#total_price").val();
+				console.log(total_price);
+				var grand_total = total_price - dInput;
 
-
+				$('#grand_total_after_discoumt').text(grand_total);
+				$('#grand_total_after_discoumt2').text(grand_total);
 
                 
             });

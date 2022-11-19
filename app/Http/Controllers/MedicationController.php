@@ -670,6 +670,7 @@ class MedicationController extends Controller
         $order->delivery_status = $request->delivery_status;
         $order->date = strtotime(date('d-m-Y'));
         $order->upcoming_date = $request->date;
+        $order->discount = $request->discount;
         $order->upcoming = 0;
 
         if($order->save()){
